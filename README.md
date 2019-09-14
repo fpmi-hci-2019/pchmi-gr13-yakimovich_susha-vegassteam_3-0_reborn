@@ -1,1 +1,1 @@
-https://github.com/fpmi-hci-2019/pchmi-gr13-yakimovich_susha-vegassteam_3-0_reborn.git
+https://docs.google.com/document/d/1q8vmWFvm6-KGS7ngZ1hiRqOAMmB3omTAoA6WH-hrVC0/edit?usp=sharing
