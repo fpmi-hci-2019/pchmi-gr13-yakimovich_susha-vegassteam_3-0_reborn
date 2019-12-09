@@ -1,6 +1,11 @@
-FROM nginx
+FROM node:12.13.1-alpine3.10 as node
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
 
-COPY www /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/
-
-EXPOSE 80
+FROM nginx:1.16.1
+COPY --from=node /usr/src/app/www /usr/share/nginx/html
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+CMD sed -i -e 's/$PORT/'"$PORT"'/g' /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'
